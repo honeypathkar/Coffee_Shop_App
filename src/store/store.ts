@@ -12,7 +12,7 @@ export const useStore = create(
       BeanList: BeansData,
       CartPrice: 0,
       CartList: [],
-      FavouriteList: [],
+      FavouritesList: [],
       OrderList: [],
       addToCart: (cartItem: any) =>
         set(
@@ -77,7 +77,7 @@ export const useStore = create(
                 if (state.CoffeeList[i].id == id) {
                   if (state.CoffeeList[i].favourite == false) {
                     state.CoffeeList[i].favourite = true;
-                    state.FavoritesList.unshift(state.CoffeeList[i]);
+                    state.FavouritesList.unshift(state.CoffeeList[i]);
                   } else {
                     state.CoffeeList[i].favourite = false;
                   }
@@ -89,7 +89,7 @@ export const useStore = create(
                 if (state.BeanList[i].id == id) {
                   if (state.BeanList[i].favourite == false) {
                     state.BeanList[i].favourite = true;
-                    state.FavoritesList.unshift(state.BeanList[i]);
+                    state.FavouritesList.unshift(state.BeanList[i]);
                   } else {
                     state.BeanList[i].favourite = false;
                   }
