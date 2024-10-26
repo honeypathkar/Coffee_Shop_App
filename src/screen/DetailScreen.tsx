@@ -4,6 +4,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  ToastAndroid,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
@@ -34,6 +35,17 @@ const DetailScreen = ({navigation, route}: any) => {
 
   const ToggleFavourite = (favourite: boolean, type: string, id: string) => {
     favourite ? deleteFromFavoriteList(type, id) : addToFavoriteList(type, id);
+    favourite
+      ? ToastAndroid.showWithGravity(
+          'Removed from Favourite',
+          ToastAndroid.SHORT,
+          ToastAndroid.CENTER,
+        )
+      : ToastAndroid.showWithGravity(
+          'Added to Favourite',
+          ToastAndroid.SHORT,
+          ToastAndroid.CENTER,
+        );
   };
 
   const BackHandler = () => {

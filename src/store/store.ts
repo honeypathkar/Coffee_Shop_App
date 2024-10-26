@@ -105,34 +105,29 @@ export const useStore = create(
             if (type == 'Coffee') {
               for (let i = 0; i < state.CoffeeList.length; i++) {
                 if (state.CoffeeList[i].id == id) {
-                  if (state.CoffeeList[i].favourite == true) {
-                    state.CoffeeList[i].favourite = false;
-                  } else {
-                    state.CoffeeList[i].favourite = true;
-                  }
+                  state.CoffeeList[i].favourite =
+                    !state.CoffeeList[i].favourite;
                   break;
                 }
               }
             } else if (type == 'Beans') {
               for (let i = 0; i < state.BeanList.length; i++) {
                 if (state.BeanList[i].id == id) {
-                  if (state.BeanList[i].favourite == true) {
-                    state.BeanList[i].favourite = false;
-                  } else {
-                    state.BeanList[i].favourite = true;
-                  }
+                  state.BeanList[i].favourite = !state.BeanList[i].favourite;
                   break;
                 }
               }
             }
             let spliceIndex = -1;
-            for (let i = 0; i < state.FavoritesList.length; i++) {
-              if (state.FavoritesList[i].id == id) {
+            for (let i = 0; i < state.FavouritesList.length; i++) {
+              if (state.FavouritesList[i].id == id) {
                 spliceIndex = i;
                 break;
               }
             }
-            state.FavoritesList.splice(spliceIndex, 1);
+            if (spliceIndex > -1) {
+              state.FavouritesList.splice(spliceIndex, 1);
+            }
           }),
         ),
     }),
