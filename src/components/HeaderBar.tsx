@@ -1,7 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import {COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
-import GradientBGIcon from './GradientBGIcon';
 import ProfilePic from './ProfilePic';
 
 interface HeaderBarProps {
@@ -11,11 +10,12 @@ interface HeaderBarProps {
 const HeaderBar: React.FC<HeaderBarProps> = ({title}) => {
   return (
     <View style={styles.HeaderContainer}>
-      <GradientBGIcon
-        name="menu"
-        color={COLORS.primaryLightGreyHex}
-        size={FONTSIZE.size_16}
-      />
+      <View style={styles.ImageContainer}>
+        <Image
+          source={require('../assets/app_images/Coffee_App_Icon.png')}
+          style={styles.Image}
+        />
+      </View>
       <Text style={styles.HeaderText}>{title}</Text>
       <ProfilePic />
     </View>
@@ -35,5 +35,16 @@ const styles = StyleSheet.create({
     fontFamily: FONTFAMILY.poppins_semibold,
     fontSize: FONTSIZE.size_20,
     color: COLORS.primaryWhiteHex,
+  },
+  ImageContainer: {
+    height: SPACING.space_36,
+    width: SPACING.space_36,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  Image: {
+    height: SPACING.space_24 * 2,
+    width: SPACING.space_24 * 2,
   },
 });
