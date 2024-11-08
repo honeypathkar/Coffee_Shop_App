@@ -61,7 +61,9 @@ const OrderHistoryScreen = ({navigation}: any) => {
             <HeaderBar title="Order History" />
 
             {OrderHistoryList.length == 0 ? (
-              <EmptyListAnimation title={'No Order Yet'} />
+              <View style={styles.EmptyListAnimation}>
+                <EmptyListAnimation title={'No Order Yet'} />
+              </View>
             ) : (
               <View style={styles.ListItemContainer}>
                 {OrderHistoryList.map((data: any, index: any) => (
@@ -129,5 +131,8 @@ const styles = StyleSheet.create({
     fontFamily: FONTFAMILY.poppins_semibold,
     fontSize: FONTSIZE.size_18,
     color: COLORS.primaryWhiteHex,
+  },
+  EmptyListAnimation: {
+    paddingVertical: SPACING.space_36 * 6,
   },
 });
